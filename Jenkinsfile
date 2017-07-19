@@ -1,15 +1,12 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.5.0-jdk-7-alpine'
-      args '-v /tmp/.m2:/root/.m2'
-    }
-    
-  }
+  agent any
   stages {
     stage('build') {
       steps {
-        sh 'mvn compile'
+        sh 'docker info'
+        sh '''which docker
+'''
+        sh 'docker ps'
       }
     }
     stage('test') {
