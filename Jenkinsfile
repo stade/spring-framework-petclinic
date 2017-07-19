@@ -1,12 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven:latest'
+      args '-v ~/.m2:/root/.m2'
+    }
+    
+  }
   stages {
     stage('build') {
       steps {
-        sh 'docker info'
-        sh '''which docker
-'''
-        sh 'docker ps'
+        sh 'mvn build'
       }
     }
     stage('test') {
