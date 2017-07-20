@@ -19,7 +19,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'mvn tomcat7:run-war'
+        sh 'mvn -Dmaven.test.skip=true tomcat7:run-war'
       }
     }
   }
