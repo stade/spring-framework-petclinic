@@ -19,8 +19,7 @@ pipeline {
     }
     stage('publish test results') {
       steps {
-        sh 'ls -la && find . -name \'*xml\''
-        junit './target/surefire-reports/TEST-*.xml'
+        input 'Tests passed. Ready to deploy'
       }
     }
     stage('deploy') {
