@@ -17,7 +17,7 @@ pipeline {
         sh 'mvn test'
       }
     }
-    stage('publish test results') {
+    stage('confirm deploy') {
       steps {
         input 'Tests passed. Ready to deploy'
       }
