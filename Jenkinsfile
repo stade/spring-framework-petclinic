@@ -22,7 +22,7 @@ pipeline {
         junit 'build/reports/**/*.xml'
       }
     }
-    stage('Deploy') {
+    stage('deploy') {
       steps {
         sh 'mvn -Dmaven.test.skip=true tomcat7:run-war &'
       }
