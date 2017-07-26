@@ -27,5 +27,11 @@ pipeline {
         sh 'mvn -Dmaven.test.skip=true tomcat7:run-war &'
       }
     }
+    stage('Create archive & archive') {
+      steps {
+        sh 'mvn -Dmaven.test.skip=true package '
+        archiveArtifacts 'target/*.war'
+      }
+    }
   }
 }
