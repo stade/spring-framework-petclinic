@@ -19,7 +19,7 @@ pipeline {
     }
     stage('publish test results') {
       steps {
-        junit 'build/target/**/*.xml'
+        junit 'target/**/*.xml'
       }
     }
     stage('deploy') {
