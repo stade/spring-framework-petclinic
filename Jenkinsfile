@@ -14,7 +14,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'mvn test || exit 0'
+        sh 'mvn test || exit 0'
       }
     }
     stage('publish test results') {
