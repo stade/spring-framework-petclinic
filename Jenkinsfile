@@ -20,7 +20,7 @@ pipeline {
     stage('publish test results') {
       steps {
         sh 'ls -la && find . -name \'*xml\''
-        junit '/**/target/surefire-reports/TEST-*.xml'
+        junit './target/surefire-reports/TEST-*.xml'
       }
     }
     stage('deploy') {
