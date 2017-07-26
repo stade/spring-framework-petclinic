@@ -27,10 +27,18 @@ pipeline {
         sh 'mvn -Dmaven.test.skip=true tomcat7:run-war &'
       }
     }
-    stage('Create archive & archive') {
+    stage('generate archive') {
       steps {
         sh 'mvn -Dmaven.test.skip=true package '
         archiveArtifacts 'target/*.war'
+      }
+    }
+    stage('') {
+      steps {
+        withAWS(credentials: 'bucket-dummy-account', region: 'eu-west-1') {
+          s3Upload(bucket: 'dummy-demo-test-bucket', path: 'archives', file: 'target/*.war ')
+        }
+        
       }
     }
   }
