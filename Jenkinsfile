@@ -33,7 +33,7 @@ pipeline {
         archiveArtifacts 'target/*.war'
       }
     }
-    stage('') {
+    stage('publish to s3') {
       steps {
         withAWS(credentials: 'bucket-dummy-account', region: 'eu-west-1') {
           s3Upload(bucket: 'dummy-demo-test-bucket', path: 'archives', file: 'target/*.war ')
