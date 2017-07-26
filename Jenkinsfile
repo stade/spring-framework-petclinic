@@ -14,7 +14,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'mvn test || exit 0'
+        sh 'mvn test -Dmaven.test.failure.ignore=true'
       }
     }
     stage('publish test results') {
