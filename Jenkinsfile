@@ -19,7 +19,7 @@ pipeline {
     }
     stage('publish test results') {
       steps {
-        junit '${basedir}/target/surefire-reports/*.xml'
+        sh 'ls -la && find . -name \'*xml\''
       }
     }
     stage('deploy') {
