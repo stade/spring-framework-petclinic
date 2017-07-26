@@ -36,7 +36,7 @@ pipeline {
     stage('publish to s3') {
       steps {
         withAWS(credentials: 's3aws', region: 'eu-west-1') {
-          s3Upload(bucket: 'dummy-demo-test-bucket', path: 'archives', file: 'target/*.war ')
+          s3Upload(bucket: 'dummy-demo-test-bucket', path: 'archives', file: 'target/*.war')
         }
         
       }
